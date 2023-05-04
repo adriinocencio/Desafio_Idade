@@ -1,18 +1,24 @@
-function idade(){
+function verificarFaseDaVida() {
+    let nome = document.getElementById("nome").value;
+    let idade = parseInt(document.getElementById("idade").value);
+    let fase = "";
 
-    var nome = document.getElementById('nomedapessoa').value;
-    nome.value = nome.value.replace(/[^a-zA-Z]/g, '');
-    var idade =document.getElementById('idadedapessoa').value;
-    console.log(nome);
-    console.log(idade);
-
-    if(idade <= 11) {
-        document.getElementById('resultado').innerText = "Olá " + nome + " essa é a idade de uma criança";
-    } else if (idade >=12 && idade <=20) {
-        document.getElementById('resultado').innerText = "Olá " + nome + " essa é a idade de um Adolescente"; 
-    } else if (idade >=21 && idade <=65) {
-        document.getElementById('resultado').innerText = "Olá " + nome + " essa é a idade de um Adulto"; 
-    } else if (idade >= 65) {
-        document.getElementById('resultado').innerText = "Olá " + nome + " essa é a idade de um Idoso " + idade + " anos de idade"; 
+    if (idade >= 0 && idade <= 12) {
+        fase = "Infância";
+    } else if (idade >= 13 && idade <= 19) {
+        fase = "Adolescência";
+    } else if (idade >= 20 && idade <= 59) {
+        fase = "Adulto";
+    } else if (idade >= 60) {
+        fase = "Idoso";
+    } else {
+        fase = "Idade inválida";
     }
+
+    document.getElementById("resultado").innerHTML = "Nome: " + nome + "<br>Idade: " + idade + "<br>Fase da vida: " + fase;
+}
+
+function validarNome() {
+    let input = document.getElementById("nome");
+    input.value = input.value.replace(/[^a-zA-Z]/g, "");
 }
