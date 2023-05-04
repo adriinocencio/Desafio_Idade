@@ -1,6 +1,7 @@
 function idade(){
 
     var nome = document.getElementById('nomedapessoa').value;
+    nome.value = nome.value.replace(/[^a-zA-Z]/g, '');
     var idade =document.getElementById('idadedapessoa').value;
     console.log(nome);
     console.log(idade);
